@@ -34,6 +34,7 @@
 }
 
 - (IBAction)didTapLogin:(id)sender {
+    [self loginUser];
 }
 
 - (void)registerUser {
@@ -56,4 +57,22 @@
         }
     }];
 }
+
+- (void)loginUser {
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.usernameTextField.text;
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User logged in successfully");
+            
+            // display view controller that needs to shown after successful login
+            [self performSegueWithIdentifier:@"loginToHome" sender:nil];
+        }
+    }];
+}
+        
+
 @end

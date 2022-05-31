@@ -52,7 +52,6 @@
 		958392BF284051480018180E = {
 			isa = PBXGroup;
 			children = (
-				958392E42840544C0018180E /* Keys.plist */,
 				958392CA284051480018180E /* meta-university-instagram */,
 				958392C9284051480018180E /* Products */,
 				C661A9E96DFA73597C96B024 /* Pods */,
@@ -71,6 +70,7 @@
 		958392CA284051480018180E /* meta-university-instagram */ = {
 			isa = PBXGroup;
 			children = (
+				958392E42840544C0018180E /* Keys.plist */,
 				958392CB284051480018180E /* AppDelegate.h */,
 				958392CC284051480018180E /* AppDelegate.m */,
 				958392CE284051480018180E /* SceneDelegate.h */,

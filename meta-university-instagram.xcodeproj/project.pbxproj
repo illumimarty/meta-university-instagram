@@ -16,6 +16,10 @@
 		958392DB2840514A0018180E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958392D92840514A0018180E /* LaunchScreen.storyboard */; };
 		958392DE2840514A0018180E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392DD2840514A0018180E /* main.m */; };
 		958392E52840544C0018180E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 958392E42840544C0018180E /* Keys.plist */; };
+		958392E92845A7240018180E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392E82845A7240018180E /* HomeViewController.m */; };
+		958392EC2845A73E0018180E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392EB2845A73E0018180E /* LoginViewController.m */; };
+		958392EF2845A7480018180E /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392EE2845A7480018180E /* ComposeViewController.m */; };
+		958392F22845A7620018180E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392F12845A7620018180E /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,14 @@
 		958392DC2840514A0018180E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		958392DD2840514A0018180E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		958392E42840544C0018180E /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		958392E72845A7240018180E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		958392E82845A7240018180E /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		958392EA2845A73E0018180E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		958392EB2845A73E0018180E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		958392ED2845A7480018180E /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		958392EE2845A7480018180E /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		958392F02845A7620018180E /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		958392F12845A7620018180E /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		ADAA61D48EC58E3BD89F3490 /* Pods-meta-university-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta-university-instagram.debug.xcconfig"; path = "Target Support Files/Pods-meta-university-instagram/Pods-meta-university-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB1B1E6F2D1EEE4D10E0A14 /* Pods-meta-university-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta-university-instagram.release.xcconfig"; path = "Target Support Files/Pods-meta-university-instagram/Pods-meta-university-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		F88DA7A0A63FD3681A689EA2 /* Pods_meta_university_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meta_university_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +82,7 @@
 		958392CA284051480018180E /* meta-university-instagram */ = {
 			isa = PBXGroup;
 			children = (
+				958392E62845A70B0018180E /* Controllers */,
 				958392E42840544C0018180E /* Keys.plist */,
 				958392CB284051480018180E /* AppDelegate.h */,
 				958392CC284051480018180E /* AppDelegate.m */,
@@ -84,6 +97,21 @@
 				958392DD2840514A0018180E /* main.m */,
 			);
 			path = "meta-university-instagram";
+			sourceTree = "<group>";
+		};
+		958392E62845A70B0018180E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				958392E72845A7240018180E /* HomeViewController.h */,
+				958392E82845A7240018180E /* HomeViewController.m */,
+				958392EA2845A73E0018180E /* LoginViewController.h */,
+				958392EB2845A73E0018180E /* LoginViewController.m */,
+				958392ED2845A7480018180E /* ComposeViewController.h */,
+				958392EE2845A7480018180E /* ComposeViewController.m */,
+				958392F02845A7620018180E /* ProfileViewController.h */,
+				958392F12845A7620018180E /* ProfileViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C661A9E96DFA73597C96B024 /* Pods */ = {
@@ -220,7 +248,11 @@
 			files = (
 				958392D3284051480018180E /* ViewController.m in Sources */,
 				958392CD284051480018180E /* AppDelegate.m in Sources */,
+				958392F22845A7620018180E /* ProfileViewController.m in Sources */,
+				958392EC2845A73E0018180E /* LoginViewController.m in Sources */,
 				958392DE2840514A0018180E /* main.m in Sources */,
+				958392EF2845A7480018180E /* ComposeViewController.m in Sources */,
+				958392E92845A7240018180E /* HomeViewController.m in Sources */,
 				958392D0284051480018180E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

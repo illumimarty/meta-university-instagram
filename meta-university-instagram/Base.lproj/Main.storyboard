@@ -36,6 +36,9 @@
                                 <rect key="frame" x="97" y="507" width="221" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIb-Ss-SaT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New User?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlH-sS-Hie">
                                 <rect key="frame" x="97" y="560" width="112" height="21"/>
@@ -47,6 +50,9 @@
                                 <rect key="frame" x="217" y="555" width="103.5" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="didTapRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WdH-zE-4dA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -72,6 +78,12 @@
                             <constraint firstItem="mZS-wP-zuM" firstAttribute="leading" secondItem="0xO-pO-nia" secondAttribute="leading" id="y2A-8p-ous"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Crl-hm-YoH" id="qd6-Rz-sZo"/>
+                        <outlet property="passwordTextField" destination="mZS-wP-zuM" id="JE3-l6-7cb"/>
+                        <outlet property="registerButton" destination="xvO-PV-hdU" id="1KQ-Dc-Yq2"/>
+                        <outlet property="usernameTextField" destination="0xO-pO-nia" id="skn-jO-xX1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

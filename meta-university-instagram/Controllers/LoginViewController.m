@@ -28,4 +28,9 @@
 }
 */
 
+- (IBAction)didTapRegister:(id)sender {
+}
+
+- (IBAction)didTapLogin:(id)sender {
+}
 @end

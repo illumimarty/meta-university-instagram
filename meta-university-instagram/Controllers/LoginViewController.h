@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)didTapLogin:(id)sender;
 - (IBAction)didTapRegister:(id)sender;
 - (void)registerUser;
+- (void)loginUser;
 
 @end
 

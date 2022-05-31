@@ -83,6 +83,7 @@
                         <outlet property="passwordTextField" destination="mZS-wP-zuM" id="JE3-l6-7cb"/>
                         <outlet property="registerButton" destination="xvO-PV-hdU" id="1KQ-Dc-Yq2"/>
                         <outlet property="usernameTextField" destination="0xO-pO-nia" id="skn-jO-xX1"/>
+                        <segue destination="Aaz-kV-f2n" kind="presentation" identifier="loginToHome" modalPresentationStyle="fullScreen" id="8E9-5j-szH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

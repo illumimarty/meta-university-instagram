@@ -6,6 +6,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Parse/Parse.h"
 
 @interface LoginViewController ()
 
@@ -29,8 +30,30 @@
 */
 
 - (IBAction)didTapRegister:(id)sender {
+    [self registerUser];
 }
 
 - (IBAction)didTapLogin:(id)sender {
+}
+
+- (void)registerUser {
+    // initialize a user object
+    PFUser *newUser = [PFUser user];
+    
+    // set user properties
+    newUser.username = self.usernameTextField.text;
+    newUser.password = self.passwordTextField.text;
+    
+    // call sign up function on the object
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User registered successfully");
+            
+            // manually segue to logged in view
+            [self performSegueWithIdentifier:@"loginToHome" sender:nil];
+        }
+    }];
 }
 @end

@@ -10,7 +10,6 @@
 		4D5902A509F375321D64206B /* Pods_meta_university_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88DA7A0A63FD3681A689EA2 /* Pods_meta_university_instagram.framework */; };
 		958392CD284051480018180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392CC284051480018180E /* AppDelegate.m */; };
 		958392D0284051480018180E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392CF284051480018180E /* SceneDelegate.m */; };
-		958392D3284051480018180E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392D2284051480018180E /* ViewController.m */; };
 		958392D6284051480018180E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958392D4284051480018180E /* Main.storyboard */; };
 		958392D82840514A0018180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 958392D72840514A0018180E /* Assets.xcassets */; };
 		958392DB2840514A0018180E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958392D92840514A0018180E /* LaunchScreen.storyboard */; };
@@ -28,8 +27,6 @@
 		958392CC284051480018180E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		958392CE284051480018180E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		958392CF284051480018180E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		958392D1284051480018180E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		958392D2284051480018180E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		958392D5284051480018180E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		958392D72840514A0018180E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		958392DA2840514A0018180E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,8 +85,6 @@
 				958392CC284051480018180E /* AppDelegate.m */,
 				958392CE284051480018180E /* SceneDelegate.h */,
 				958392CF284051480018180E /* SceneDelegate.m */,
-				958392D1284051480018180E /* ViewController.h */,
-				958392D2284051480018180E /* ViewController.m */,
 				958392D4284051480018180E /* Main.storyboard */,
 				958392D72840514A0018180E /* Assets.xcassets */,
 				958392D92840514A0018180E /* LaunchScreen.storyboard */,
@@ -246,7 +241,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				958392D3284051480018180E /* ViewController.m in Sources */,
 				958392CD284051480018180E /* AppDelegate.m in Sources */,
 				958392F22845A7620018180E /* ProfileViewController.m in Sources */,
 				958392EC2845A73E0018180E /* LoginViewController.m in Sources */,

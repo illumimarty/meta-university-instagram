@@ -9,8 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ComposeViewController : UIViewController
+@interface ComposeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *draftImageView;
+@property (weak, nonatomic) IBOutlet UITextField *captionTextField;
+
 - (IBAction)cancelButton:(id)sender;
+- (IBAction)didTapPublishButton:(id)sender;
+- (IBAction)didTapImageView:(id)sender;
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info;
 
 @end
 

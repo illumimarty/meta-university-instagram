@@ -178,8 +178,31 @@
                     <view key="view" contentMode="scaleToFill" id="ggI-Ei-YHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="QYh-84-sJO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QYh-84-sJO" secondAttribute="height" multiplier="1:1" id="QRH-XC-Di1"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="f7c-bO-QaS" appends="YES" id="jMi-Wd-qos"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's on the image?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-xa-sdb">
+                                <rect key="frame" x="20" y="510" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xXq-Jx-x8p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QYh-84-sJO" firstAttribute="leading" secondItem="xXq-Jx-x8p" secondAttribute="leading" id="5rX-y4-JoB"/>
+                            <constraint firstItem="QYh-84-sJO" firstAttribute="top" secondItem="xXq-Jx-x8p" secondAttribute="top" id="Kn7-IV-2yA"/>
+                            <constraint firstItem="QYh-84-sJO" firstAttribute="trailing" secondItem="xXq-Jx-x8p" secondAttribute="trailing" id="gTD-o3-4Hd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Draft" id="TKF-aA-jKR">
                         <barButtonItem key="backBarButtonItem" title="Discard" id="I4k-48-gUY"/>
@@ -188,11 +211,25 @@
                                 <action selector="cancelButton:" destination="jiA-c0-MiY" id="eQo-dR-8CA"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Publish" id="Hqa-CU-kMj">
+                            <connections>
+                                <action selector="didTapPublishButton:" destination="jiA-c0-MiY" id="S0O-YY-Jd0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="captionTextField" destination="Jhq-xa-sdb" id="o8q-EW-HjQ"/>
+                        <outlet property="draftImageView" destination="QYh-84-sJO" id="gza-gt-pDd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaf-7M-o0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="f7c-bO-QaS">
+                    <connections>
+                        <action selector="didTapImageView:" destination="jiA-c0-MiY" id="Esf-5j-TBM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2329" y="1254"/>
+            <point key="canvasLocation" x="2328.985507246377" y="1253.5714285714284"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Aed-Qi-2Zt">
@@ -235,6 +272,7 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

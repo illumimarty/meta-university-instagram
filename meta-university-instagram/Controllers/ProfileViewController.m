@@ -6,6 +6,9 @@
 //
 
 #import "ProfileViewController.h"
+#include "Parse/Parse.h"
+#include "AppDelegate.h"
+#include "LoginViewController.h"
 
 @interface ProfileViewController ()
 
@@ -18,6 +21,14 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)onTapLogout:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -27,5 +38,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end

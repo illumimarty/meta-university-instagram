@@ -100,7 +100,7 @@
                         <viewLayoutGuide key="safeArea" id="jo4-40-IPf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5cQ-qu-rMq"/>
+                    <navigationItem key="navigationItem" title="Home" id="5cQ-qu-rMq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rt1-gn-AkE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +116,13 @@
                         <viewLayoutGuide key="safeArea" id="pV6-te-o6P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9I4-4T-z0Q"/>
+                    <navigationItem key="navigationItem" title="Profile" id="9I4-4T-z0Q">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="5yJ-cG-4e5">
+                            <connections>
+                                <action selector="onTapLogout:" destination="IpS-qX-zGb" id="xFD-nU-bk0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WuA-It-nWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

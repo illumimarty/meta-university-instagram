@@ -7,4 +7,5 @@ target 'meta-university-instagram' do
 
   # Pods for meta-university-instagram
   pod 'Parse'
+  pod 'Parse/UI'
 end

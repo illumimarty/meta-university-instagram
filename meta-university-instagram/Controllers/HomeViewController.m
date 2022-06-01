@@ -8,8 +8,9 @@
 #import "HomeViewController.h"
 #include <Parse/Parse.h>
 #include "Post.h"
+#include "PostCell.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -19,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self fetchPosts];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 - (void)fetchPosts {
@@ -30,8 +33,10 @@
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
-            NSLog(@"%@", posts);
             // do something with the data fetched
+            self.postsArray = (NSMutableArray *)posts;
+            NSLog(@"%@", posts);
+            [self.tableView reloadData];
         }
         else {
             // handle error
@@ -48,5 +53,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    
+    Post *post = self.postsArray[indexPath.row];
+    
+    [cell setPost:post];
+        
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.postsArray.count;
+}
+
 
 @end

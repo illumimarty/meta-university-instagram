@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D5902A509F375321D64206B /* Pods_meta_university_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88DA7A0A63FD3681A689EA2 /* Pods_meta_university_instagram.framework */; };
+		955E08382848137200543561 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 955E08372848137200543561 /* PostCell.m */; };
 		958392CD284051480018180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392CC284051480018180E /* AppDelegate.m */; };
 		958392D0284051480018180E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392CF284051480018180E /* SceneDelegate.m */; };
 		958392D6284051480018180E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958392D4284051480018180E /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		955E08362848137200543561 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		955E08372848137200543561 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		958392C8284051480018180E /* meta-university-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "meta-university-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		958392CB284051480018180E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		958392CC284051480018180E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 			children = (
 				958392F42847D1B20018180E /* Post.h */,
 				958392F52847D1B20018180E /* Post.m */,
+				955E08362848137200543561 /* PostCell.h */,
+				955E08372848137200543561 /* PostCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				958392EC2845A73E0018180E /* LoginViewController.m in Sources */,
 				958392DE2840514A0018180E /* main.m in Sources */,
 				958392EF2845A7480018180E /* ComposeViewController.m in Sources */,
+				955E08382848137200543561 /* PostCell.m in Sources */,
 				958392E92845A7240018180E /* HomeViewController.m in Sources */,
 				958392D0284051480018180E /* SceneDelegate.m in Sources */,
 				958392F62847D1B20018180E /* Post.m in Sources */,

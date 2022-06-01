@@ -22,6 +22,25 @@
     [self fetchPosts];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+
+    // Create NSURL and NSURLRequest
+    [self fetchPosts];
+
+    // ... Use the new data to update the data source ...
+
+    // Reload the tableView now that there is new data
+    [self.tableView reloadData];
+
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
 }
 
 - (void)fetchPosts {

@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
+- (IBAction)onTapLogout:(id)sender;
 
 @end
 

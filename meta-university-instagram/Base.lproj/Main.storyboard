@@ -11,7 +11,7 @@
         <!--LoginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,14 +93,14 @@
         <!--HomeViewController-->
         <scene sceneID="heb-qj-C8b">
             <objects>
-                <viewController title="HomeViewController" id="dNy-BA-86A" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="HomeViewController" modalPresentationStyle="fullScreen" id="dNy-BA-86A" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wnp-V8-dC9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="jo4-40-IPf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5cQ-qu-rMq"/>
+                    <navigationItem key="navigationItem" title="Home" id="5cQ-qu-rMq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rt1-gn-AkE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +116,13 @@
                         <viewLayoutGuide key="safeArea" id="pV6-te-o6P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9I4-4T-z0Q"/>
+                    <navigationItem key="navigationItem" title="Profile" id="9I4-4T-z0Q">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="5yJ-cG-4e5">
+                            <connections>
+                                <action selector="onTapLogout:" destination="IpS-qX-zGb" id="xFD-nU-bk0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WuA-It-nWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="-181" y="1254"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabViewController-->
         <scene sceneID="6MF-AV-mNQ">
             <objects>
-                <tabBarController id="Aaz-kV-f2n" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" title="TabViewController" id="Aaz-kV-f2n" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bj6-V6-PzD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -162,7 +168,7 @@
         <!--ComposeViewController-->
         <scene sceneID="ffq-Vq-pb2">
             <objects>
-                <viewController title="ComposeViewController" id="jiA-c0-MiY" customClass="ComposeViewController" sceneMemberID="viewController">
+                <viewController title="ComposeViewController" modalPresentationStyle="fullScreen" id="jiA-c0-MiY" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ggI-Ei-YHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -189,9 +189,8 @@
                                     <outletCollection property="gestureRecognizers" destination="f7c-bO-QaS" appends="YES" id="jMi-Wd-qos"/>
                                 </connections>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's on the image?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-xa-sdb">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's on the image?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-xa-sdb">
                                 <rect key="frame" x="20" y="510" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -200,7 +199,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QYh-84-sJO" firstAttribute="leading" secondItem="xXq-Jx-x8p" secondAttribute="leading" id="5rX-y4-JoB"/>
+                            <constraint firstItem="xXq-Jx-x8p" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jhq-xa-sdb" secondAttribute="bottom" constant="8" id="Ckj-FT-ho9"/>
                             <constraint firstItem="QYh-84-sJO" firstAttribute="top" secondItem="xXq-Jx-x8p" secondAttribute="top" id="Kn7-IV-2yA"/>
+                            <constraint firstItem="Jhq-xa-sdb" firstAttribute="top" secondItem="QYh-84-sJO" secondAttribute="bottom" constant="8" symbolic="YES" id="OA5-tW-eHf"/>
+                            <constraint firstItem="Jhq-xa-sdb" firstAttribute="leading" secondItem="xXq-Jx-x8p" secondAttribute="leading" constant="20" id="QJA-DA-r6I"/>
+                            <constraint firstItem="xXq-Jx-x8p" firstAttribute="trailing" secondItem="Jhq-xa-sdb" secondAttribute="trailing" constant="20" id="VCt-7V-Hqt"/>
                             <constraint firstItem="QYh-84-sJO" firstAttribute="trailing" secondItem="xXq-Jx-x8p" secondAttribute="trailing" id="gTD-o3-4Hd"/>
                         </constraints>
                     </view>

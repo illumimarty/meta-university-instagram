@@ -100,7 +100,13 @@
                         <viewLayoutGuide key="safeArea" id="jo4-40-IPf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="5cQ-qu-rMq"/>
+                    <navigationItem key="navigationItem" title="Home" id="5cQ-qu-rMq">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VeE-Ov-qiJ">
+                            <connections>
+                                <segue destination="UNb-Ty-lpu" kind="presentation" id="xDU-fG-TKo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rt1-gn-AkE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,11 +134,11 @@
             </objects>
             <point key="canvasLocation" x="4473.913043478261" y="1253.5714285714284"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="L1E-6T-c0p">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xyd-i2-jZB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aLS-Ic-Ayk"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="aLS-Ic-Ayk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g0m-MZ-huB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -175,17 +181,24 @@
                         <viewLayoutGuide key="safeArea" id="xXq-Jx-x8p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TKF-aA-jKR"/>
+                    <navigationItem key="navigationItem" title="New Draft" id="TKF-aA-jKR">
+                        <barButtonItem key="backBarButtonItem" title="Discard" id="I4k-48-gUY"/>
+                        <barButtonItem key="leftBarButtonItem" title="Discard" id="BbR-Ua-HdO">
+                            <connections>
+                                <action selector="cancelButton:" destination="jiA-c0-MiY" id="eQo-dR-8CA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaf-7M-o0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2329" y="1254"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="Aed-Qi-2Zt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qH4-Nb-Gyy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LAc-Fb-aVW"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="LAc-Fb-aVW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gGg-Dh-qEp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -203,7 +216,8 @@
         <!--Navigation Controller-->
         <scene sceneID="qcm-np-rdA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UNb-Ty-lpu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="UNb-Ty-lpu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="AbP-hg-NXC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v4a-dm-pys">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -220,6 +234,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

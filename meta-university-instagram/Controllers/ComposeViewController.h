@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeViewController : UIViewController
+- (IBAction)cancelButton:(id)sender;
 
 @end
 

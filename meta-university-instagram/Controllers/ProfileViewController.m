@@ -7,8 +7,8 @@
 
 #import "ProfileViewController.h"
 #include "Parse/Parse.h"
-#include "AppDelegate.h"
 #include "LoginViewController.h"
+#include "SceneDelegate.h"
 
 @interface ProfileViewController ()
 
@@ -26,7 +26,12 @@
         // PFUser.current() will now be nil
     }];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+
+    myDelegate.window.rootViewController = loginViewController;
 }
 
 /*

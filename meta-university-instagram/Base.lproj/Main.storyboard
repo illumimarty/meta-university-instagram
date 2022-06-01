@@ -100,7 +100,13 @@
                         <viewLayoutGuide key="safeArea" id="jo4-40-IPf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="5cQ-qu-rMq"/>
+                    <navigationItem key="navigationItem" title="Home" id="5cQ-qu-rMq">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VeE-Ov-qiJ">
+                            <connections>
+                                <segue destination="UNb-Ty-lpu" kind="presentation" id="xDU-fG-TKo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rt1-gn-AkE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,11 +134,11 @@
             </objects>
             <point key="canvasLocation" x="4473.913043478261" y="1253.5714285714284"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="L1E-6T-c0p">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xyd-i2-jZB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aLS-Ic-Ayk"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="aLS-Ic-Ayk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g0m-MZ-huB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -172,20 +178,67 @@
                     <view key="view" contentMode="scaleToFill" id="ggI-Ei-YHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="QYh-84-sJO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QYh-84-sJO" secondAttribute="height" multiplier="1:1" id="QRH-XC-Di1"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="f7c-bO-QaS" appends="YES" id="jMi-Wd-qos"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's on the image?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-xa-sdb">
+                                <rect key="frame" x="20" y="510" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xXq-Jx-x8p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QYh-84-sJO" firstAttribute="leading" secondItem="xXq-Jx-x8p" secondAttribute="leading" id="5rX-y4-JoB"/>
+                            <constraint firstItem="xXq-Jx-x8p" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jhq-xa-sdb" secondAttribute="bottom" constant="8" id="Ckj-FT-ho9"/>
+                            <constraint firstItem="QYh-84-sJO" firstAttribute="top" secondItem="xXq-Jx-x8p" secondAttribute="top" id="Kn7-IV-2yA"/>
+                            <constraint firstItem="Jhq-xa-sdb" firstAttribute="top" secondItem="QYh-84-sJO" secondAttribute="bottom" constant="8" symbolic="YES" id="OA5-tW-eHf"/>
+                            <constraint firstItem="Jhq-xa-sdb" firstAttribute="leading" secondItem="xXq-Jx-x8p" secondAttribute="leading" constant="20" id="QJA-DA-r6I"/>
+                            <constraint firstItem="xXq-Jx-x8p" firstAttribute="trailing" secondItem="Jhq-xa-sdb" secondAttribute="trailing" constant="20" id="VCt-7V-Hqt"/>
+                            <constraint firstItem="QYh-84-sJO" firstAttribute="trailing" secondItem="xXq-Jx-x8p" secondAttribute="trailing" id="gTD-o3-4Hd"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TKF-aA-jKR"/>
+                    <navigationItem key="navigationItem" title="New Draft" id="TKF-aA-jKR">
+                        <barButtonItem key="backBarButtonItem" title="Discard" id="I4k-48-gUY"/>
+                        <barButtonItem key="leftBarButtonItem" title="Discard" id="BbR-Ua-HdO">
+                            <connections>
+                                <action selector="cancelButton:" destination="jiA-c0-MiY" id="eQo-dR-8CA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Publish" id="Hqa-CU-kMj">
+                            <connections>
+                                <action selector="didTapPublishButton:" destination="jiA-c0-MiY" id="S0O-YY-Jd0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionTextField" destination="Jhq-xa-sdb" id="o8q-EW-HjQ"/>
+                        <outlet property="draftImageView" destination="QYh-84-sJO" id="gza-gt-pDd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaf-7M-o0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="f7c-bO-QaS">
+                    <connections>
+                        <action selector="didTapImageView:" destination="jiA-c0-MiY" id="Esf-5j-TBM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2329" y="1254"/>
+            <point key="canvasLocation" x="2328.985507246377" y="1253.5714285714284"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="Aed-Qi-2Zt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qH4-Nb-Gyy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LAc-Fb-aVW"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="LAc-Fb-aVW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gGg-Dh-qEp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -203,7 +256,8 @@
         <!--Navigation Controller-->
         <scene sceneID="qcm-np-rdA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UNb-Ty-lpu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="UNb-Ty-lpu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="AbP-hg-NXC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v4a-dm-pys">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -220,6 +274,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="image_placeholder" width="375" height="375"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

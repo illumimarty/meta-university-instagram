@@ -67,10 +67,11 @@
     if (self.draftImageView.image && self.captionTextField.text) {
         [Post postUserImage:self.draftImageView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             
-            // completion code
             NSLog(@"Successfully posted image!");
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
+    } else {
+        NSLog(@"No image or caption!");
     }
 }
 

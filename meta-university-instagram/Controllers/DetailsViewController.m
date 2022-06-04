@@ -18,13 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.captionLabel.text = self.post.caption;
-//    self.postImageView.image = self.post.image;
-//    self.
-//
-//    self.postImageView.file = self.post[@"image"];
-//    self.captionLabel.text = self.post.caption;
-    
     [self setPost:self.post];
 
 }
@@ -33,8 +26,6 @@
 //    self.post = post;
     _post = post;
     self.postImageView.file = post[@"image"];
-
-//    self.postImageView.image = post[@"image"];
     [self.postImageView loadInBackground];
     
 //    NSString *caption = [NSString stringWithFormat:@"@%@ %@", post[@"author"], post[@"caption"]];

@@ -6,6 +6,7 @@
 //
 
 #import "HomeViewController.h"
+#import "DetailsViewController.h"
 #include <Parse/Parse.h>
 #include "Post.h"
 #include "PostCell.h"
@@ -63,15 +64,66 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"homeToDetails"]) {
+//        UINavigationController *nav = [segue destinationViewController];
+//        DetailsViewController *vc = (DetailsViewController *)nav.topViewController;
+        DetailsViewController *vc = [segue destinationViewController];
+        
+        PostCell *cell = sender;
+//        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Post *post = self.postsArray[indexPath.row];
+        
+//        [vc setPost:post];
+        vc.post = post;
+        
+        
+    }
+    
+    
+//    PostCell *cell = sender;
+////    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//
+//    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+//
+//  NSLog(@"%ld", (long)indexPath.row);
+//
+//
+//    DetailsViewController *vc = segue.destinationViewController;
+//    UINavigationController *nav = [segue destinationViewController];
+//
+//    DetailsViewController *vc = (DetailsViewController *)nav.topViewController;
+    
+//    Post *postToPass = self.postsArray[indexPath.row];
+    
+    
+    
+//    vc.captionLabel.text = postToPass[@"caption"];
+//    vc.postImageView.image = postToPass[@"image"];
+    
+//    [vc setPost:cell.post];
+
+//    [self performSegueWithIdentifier:@"homeToDetails" sender:nil];
+
+//    vc.post = postToPass;
+    
+
+    
+    
+    
+//    PhotoViewController *photoViewController = segue.destinationViewController;
+//    photoViewController.image = self.imageView.image;
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -86,6 +138,19 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.postsArray.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    DetailsViewController *vc = segue.destinationViewController;
+//
+//    Post *postToPass = self.postsArray[indexPath.row];
+    
+//    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+//    
+//    [self performSegueWithIdentifier:@"homeToDetails" sender:cell];
+//    vc.post = postToPass;
+//    NSLog(@"%ld", (long)indexPath.row);
 }
 
 

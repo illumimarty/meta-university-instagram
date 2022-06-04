@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D5902A509F375321D64206B /* Pods_meta_university_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88DA7A0A63FD3681A689EA2 /* Pods_meta_university_instagram.framework */; };
+		9512F59F28483DBB00B5F03D /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9512F59E28483DBB00B5F03D /* DetailsViewController.m */; };
 		955E08382848137200543561 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 955E08372848137200543561 /* PostCell.m */; };
 		958392CD284051480018180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392CC284051480018180E /* AppDelegate.m */; };
 		958392D0284051480018180E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392CF284051480018180E /* SceneDelegate.m */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9512F59D28483DBB00B5F03D /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		9512F59E28483DBB00B5F03D /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		955E08362848137200543561 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		955E08372848137200543561 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		958392C8284051480018180E /* meta-university-instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "meta-university-instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +115,8 @@
 				958392EE2845A7480018180E /* ComposeViewController.m */,
 				958392F02845A7620018180E /* ProfileViewController.h */,
 				958392F12845A7620018180E /* ProfileViewController.m */,
+				9512F59D28483DBB00B5F03D /* DetailsViewController.h */,
+				9512F59E28483DBB00B5F03D /* DetailsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				958392CD284051480018180E /* AppDelegate.m in Sources */,
+				9512F59F28483DBB00B5F03D /* DetailsViewController.m in Sources */,
 				958392F22845A7620018180E /* ProfileViewController.m in Sources */,
 				958392EC2845A73E0018180E /* LoginViewController.m in Sources */,
 				958392DE2840514A0018180E /* main.m in Sources */,

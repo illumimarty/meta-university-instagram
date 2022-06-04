@@ -6,6 +6,7 @@
 //
 
 #import "HomeViewController.h"
+#import "DetailsViewController.h"
 #include <Parse/Parse.h>
 #include "Post.h"
 #include "PostCell.h"
@@ -63,24 +64,28 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"homeToDetails"]) {
+
+        DetailsViewController *vc = [segue destinationViewController];
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+
+        Post *post = self.postsArray[indexPath.row];
+        vc.post = post;
+    }
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
-    
     Post *post = self.postsArray[indexPath.row];
-    
     [cell setPost:post];
-        
+    
     return cell;
 }
 
@@ -88,5 +93,8 @@
     return self.postsArray.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 @end

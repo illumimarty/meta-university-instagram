@@ -22,6 +22,7 @@
 		958392EF2845A7480018180E /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392EE2845A7480018180E /* ComposeViewController.m */; };
 		958392F22845A7620018180E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392F12845A7620018180E /* ProfileViewController.m */; };
 		958392F62847D1B20018180E /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392F52847D1B20018180E /* Post.m */; };
+		95F07DA4284E63BA0028D6FD /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F07DA3284E63BA0028D6FD /* CommentCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		958392F12845A7620018180E /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		958392F42847D1B20018180E /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		958392F52847D1B20018180E /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		95F07DA2284E63BA0028D6FD /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		95F07DA3284E63BA0028D6FD /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		ADAA61D48EC58E3BD89F3490 /* Pods-meta-university-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta-university-instagram.debug.xcconfig"; path = "Target Support Files/Pods-meta-university-instagram/Pods-meta-university-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB1B1E6F2D1EEE4D10E0A14 /* Pods-meta-university-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta-university-instagram.release.xcconfig"; path = "Target Support Files/Pods-meta-university-instagram/Pods-meta-university-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		F88DA7A0A63FD3681A689EA2 /* Pods_meta_university_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meta_university_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +131,8 @@
 				958392F52847D1B20018180E /* Post.m */,
 				955E08362848137200543561 /* PostCell.h */,
 				955E08372848137200543561 /* PostCell.m */,
+				95F07DA2284E63BA0028D6FD /* CommentCell.h */,
+				95F07DA3284E63BA0028D6FD /* CommentCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F07DA4284E63BA0028D6FD /* CommentCell.m in Sources */,
 				958392CD284051480018180E /* AppDelegate.m in Sources */,
 				9512F59F28483DBB00B5F03D /* DetailsViewController.m in Sources */,
 				958392F22845A7620018180E /* ProfileViewController.m in Sources */,

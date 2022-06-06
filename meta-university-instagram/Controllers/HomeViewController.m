@@ -93,8 +93,26 @@
     return self.postsArray.count;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    Post *post = self.postsArray[indexPath.row];
+    
+    PFObject *comment = [[PFObject alloc] initWithClassName:@"Comment"];
+    comment[@"text"] = @"Wow very cool! Thank you for sharing!";
+    comment[@"post"] = post;
+    comment[@"author"] = PFUser.currentUser;
+    
+    [post addObject:comment forKey:@"comments"];
+    
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Comment saved!");
+        } else {
+            NSLog(@"Error saving comment!");
+        }
+    }];
 }
 
 @end

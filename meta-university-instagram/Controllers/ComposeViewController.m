@@ -22,13 +22,43 @@
 }
 
 - (void)imageSelector {
+    
+//    UIAlertController *action = [[UIAlertController] alert]
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
 
     // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        UIAlertController *actionController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                                 // handle cancel response here. Doing nothing will dismiss the view.
+                                                          }];
+        
+        UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"Select from Album"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                                 // handle response here.
+                                                            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                                         }];
+        
+        UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Take Photo"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                                 // handle response here.
+                                                            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+                                                        }];
+        [actionController addAction:cameraAction];
+        [actionController addAction:albumAction];
+        [actionController addAction:cancelAction];
+        
+        [self presentViewController:actionController animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
     }
     else {
         NSLog(@"Camera 🚫 available so we will use photo library instead");

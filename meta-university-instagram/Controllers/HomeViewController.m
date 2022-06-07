@@ -10,6 +10,7 @@
 #include <Parse/Parse.h>
 #include "Post.h"
 #include "PostCell.h"
+#include "CommentCell.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -47,7 +48,8 @@
 - (void)fetchPosts {
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
-    [postQuery includeKey:@"author"];
+    [postQuery includeKeys: [NSArray arrayWithObjects:@"author", @"comments", @"comments.author", nil]];
+//    [postQuery includeKey:@"author"];
     postQuery.limit = 20;
 
     // fetch data asynchronously
@@ -70,10 +72,13 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"homeToDetails"]) {
-
-        DetailsViewController *vc = [segue destinationViewController];
+        UINavigationController *nav = [segue destinationViewController];
+        DetailsViewController *vc = (DetailsViewController *)nav.topViewController;
+//        DetailsViewController *vc = [segue destinationViewController];
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
 
+//        PostCell *cell = sender;
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         Post *post = self.postsArray[indexPath.row];
         vc.post = post;
     }
@@ -82,19 +87,73 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
     Post *post = self.postsArray[indexPath.row];
+
+    
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
     [cell setPost:post];
     
     return cell;
+    
+//    Post *post = self.postsArray[indexPath.section];
+//    NSArray *comments = post[@"comments"];
+//
+//    if (indexPath.row == 0) {
+//        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+//        [cell setPost:post];
+//
+//        return cell;
+//    } else {
+//        CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+//
+//        NSDictionary *comment = comments[indexPath.row - 1];
+//        cell.commentLabel.text = comment[@"text"];
+//
+//        PFUser *user = comment[@"author"];
+//        cell.usernameLabel.text = user.username;
+//
+//        return cell;
+//    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.postsArray.count;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+//- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//
+//    // TODO: how to initialize comments array if it's empty?
+//    Post *post = self.postsArray[section];
+//    NSArray *comments = post[@"comments"];
+//
+//    return comments.count + 1;
+//}
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return self.postsArray.count;
+//}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    //    Post *post = self.postsArray[indexPath.section];
+    //
+    //    PFObject *comment = [[PFObject alloc] initWithClassName:@"Comment"];
+    //    comment[@"text"] = @"This is pretty cool I guess";
+    //    comment[@"post"] = post;
+    //    comment[@"author"] = PFUser.currentUser;
+    //
+    //    [post addObject:comment forKey:@"comments"];
+    //
+    //    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    //        if (succeeded) {
+    //            NSLog(@"Comment saved!");
+    //        } else {
+    //            NSLog(@"Error saving comment!");
+    //        }
+    //    }];
 }
 
 @end

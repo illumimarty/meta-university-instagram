@@ -18,6 +18,9 @@
 
 @implementation HomeViewController
 
+NSString *CellIdentifier = @"TableViewCell";
+NSString *HeaderViewIdentifier = @"TableViewHeaderView";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -28,7 +31,11 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
+    
 
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:HeaderViewIdentifier];
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
@@ -154,6 +161,18 @@
     //            NSLog(@"Error saving comment!");
     //        }
     //    }];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.postsArray.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.postsArray[section][@"author"];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30.0;
 }
 
 @end

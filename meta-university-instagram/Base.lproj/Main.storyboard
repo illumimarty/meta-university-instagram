@@ -137,7 +137,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="ZFA-mO-oFA" id="mNk-Bp-ObK"/>
                                             <outlet property="postImageView" destination="XyJ-ce-r77" id="G9X-tk-Bsu"/>
-                                            <segue destination="jhk-cB-WLh" kind="show" identifier="homeToDetails" id="osB-2n-uM4"/>
+                                            <segue destination="LqL-1b-yPl" kind="show" identifier="homeToDetails" id="osB-2n-uM4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="Ne3-LG-aDZ" customClass="CommentCell">
@@ -171,7 +171,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="5zO-vn-X91" id="3Zk-uP-XGC"/>
+                                            <outlet property="commentLabel" destination="Svi-RK-rII" id="tdR-hd-bRD"/>
                                             <outlet property="usernameLabel" destination="5zO-vn-X91" id="JhM-TJ-8WV"/>
                                         </connections>
                                     </tableViewCell>
@@ -397,6 +397,25 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLc-EL-gGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3315.9420289855075" y="2009.5982142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ohF-Ua-ok2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LqL-1b-yPl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="0VH-9E-ofS"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gaZ-H1-4yA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jhk-cB-WLh" kind="relationship" relationship="rootViewController" id="D7M-Pj-8GF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJ2-93-VaC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2405.7971014492755" y="2009.5982142857142"/>
         </scene>

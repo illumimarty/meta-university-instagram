@@ -39,6 +39,10 @@
 //    NSString *caption = [NSString stringWithFormat:@"@%@ %@", post[@"author"], post[@"caption"]];
     NSString *caption = post[@"caption"];
     self.captionLabel.text = caption;
+    
+    int likeCount = [self.post.likeCount intValue];
+    
+    self.likesCountLabel.text = [NSString stringWithFormat:@"%d Likes", likeCount];
 }
 
 #pragma mark - Navigation
@@ -62,6 +66,31 @@
 }
 
 - (IBAction)didTapLikeButton:(id)sender {
+    Post *post = self.post;
+    
+    // update local post model
+    if (self.post.liked) {
+        self.post.liked = NO;
+        int incrementedLikeCount = [self.post.likeCount intValue] - 1;
+        post.likeCount = @(incrementedLikeCount);
+    } else {
+        self.post.liked = YES;
+        int incrementedLikeCount = [self.post.likeCount intValue] + 1;
+        post.likeCount = @(incrementedLikeCount);
+    }
+    
+    // update post UI
+    self.likesCountLabel.text = [NSString stringWithFormat:@"%@ Likes", self.post.likeCount];
+    
+    
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Post successfully liked!");
+        } else {
+            NSLog(@"Error saving like!");
+        }
+    }];
+    
 }
 
 - (IBAction)didTapCommentButton:(id)sender {

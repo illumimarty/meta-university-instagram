@@ -22,6 +22,7 @@
 		958392EF2845A7480018180E /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392EE2845A7480018180E /* ComposeViewController.m */; };
 		958392F22845A7620018180E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392F12845A7620018180E /* ProfileViewController.m */; };
 		958392F62847D1B20018180E /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 958392F52847D1B20018180E /* Post.m */; };
+		95AE1292284F06A200F72205 /* CommentDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AE1291284F06A200F72205 /* CommentDraftViewController.m */; };
 		95F07DA4284E63BA0028D6FD /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F07DA3284E63BA0028D6FD /* CommentCell.m */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 		958392F12845A7620018180E /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		958392F42847D1B20018180E /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		958392F52847D1B20018180E /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		95AE1290284F06A200F72205 /* CommentDraftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentDraftViewController.h; sourceTree = "<group>"; };
+		95AE1291284F06A200F72205 /* CommentDraftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentDraftViewController.m; sourceTree = "<group>"; };
 		95F07DA2284E63BA0028D6FD /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		95F07DA3284E63BA0028D6FD /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		ADAA61D48EC58E3BD89F3490 /* Pods-meta-university-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meta-university-instagram.debug.xcconfig"; path = "Target Support Files/Pods-meta-university-instagram/Pods-meta-university-instagram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				958392F12845A7620018180E /* ProfileViewController.m */,
 				9512F59D28483DBB00B5F03D /* DetailsViewController.h */,
 				9512F59E28483DBB00B5F03D /* DetailsViewController.m */,
+				95AE1290284F06A200F72205 /* CommentDraftViewController.h */,
+				95AE1291284F06A200F72205 /* CommentDraftViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				958392F22845A7620018180E /* ProfileViewController.m in Sources */,
 				958392EC2845A73E0018180E /* LoginViewController.m in Sources */,
 				958392DE2840514A0018180E /* main.m in Sources */,
+				95AE1292284F06A200F72205 /* CommentDraftViewController.m in Sources */,
 				958392EF2845A7480018180E /* ComposeViewController.m in Sources */,
 				955E08382848137200543561 /* PostCell.m in Sources */,
 				958392E92845A7240018180E /* HomeViewController.m in Sources */,

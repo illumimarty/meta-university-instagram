@@ -74,9 +74,12 @@
     if ([[segue identifier] isEqualToString:@"homeToDetails"]) {
         UINavigationController *nav = [segue destinationViewController];
         DetailsViewController *vc = (DetailsViewController *)nav.topViewController;
-        PostCell *cell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        Post *post = self.postsArray[indexPath.section];
+//        DetailsViewController *vc = [segue destinationViewController];
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+
+//        PostCell *cell = sender;
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Post *post = self.postsArray[indexPath.row];
         vc.post = post;
     }
 }
@@ -84,60 +87,73 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    Post *post = self.postsArray[indexPath.section];
-    NSArray *comments = post[@"comments"];
+    Post *post = self.postsArray[indexPath.row];
+
     
-    if (indexPath.row == 0) {
-        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
-        [cell setPost:post];
-        
-        return cell;
-    } else {
-        CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
-        
-        NSDictionary *comment = comments[indexPath.row - 1];
-        cell.commentLabel.text = comment[@"text"];
-        
-        PFUser *user = comment[@"author"];
-        cell.usernameLabel.text = user.username;
-        
-        return cell;
-    }
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    [cell setPost:post];
+    
+    return cell;
+    
+//    Post *post = self.postsArray[indexPath.section];
+//    NSArray *comments = post[@"comments"];
+//
+//    if (indexPath.row == 0) {
+//        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+//        [cell setPost:post];
+//
+//        return cell;
+//    } else {
+//        CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+//
+//        NSDictionary *comment = comments[indexPath.row - 1];
+//        cell.commentLabel.text = comment[@"text"];
+//
+//        PFUser *user = comment[@"author"];
+//        cell.usernameLabel.text = user.username;
+//
+//        return cell;
+//    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    // TODO: how to initialize comments array if it's empty?
-    Post *post = self.postsArray[section];
-    NSArray *comments = post[@"comments"];
-    
-    return comments.count + 1;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.postsArray.count;
 }
 
+
+//- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//
+//    // TODO: how to initialize comments array if it's empty?
+//    Post *post = self.postsArray[section];
+//    NSArray *comments = post[@"comments"];
+//
+//    return comments.count + 1;
+//}
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return self.postsArray.count;
+//}
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    Post *post = self.postsArray[indexPath.section];
-    
-    PFObject *comment = [[PFObject alloc] initWithClassName:@"Comment"];
-    comment[@"text"] = @"This is pretty cool I guess";
-    comment[@"post"] = post;
-    comment[@"author"] = PFUser.currentUser;
-    
-    [post addObject:comment forKey:@"comments"];
-    
-    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"Comment saved!");
-        } else {
-            NSLog(@"Error saving comment!");
-        }
-    }];
+    //    Post *post = self.postsArray[indexPath.section];
+    //
+    //    PFObject *comment = [[PFObject alloc] initWithClassName:@"Comment"];
+    //    comment[@"text"] = @"This is pretty cool I guess";
+    //    comment[@"post"] = post;
+    //    comment[@"author"] = PFUser.currentUser;
+    //
+    //    [post addObject:comment forKey:@"comments"];
+    //
+    //    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    //        if (succeeded) {
+    //            NSLog(@"Comment saved!");
+    //        } else {
+    //            NSLog(@"Error saving comment!");
+    //        }
+    //    }];
 }
 
 @end

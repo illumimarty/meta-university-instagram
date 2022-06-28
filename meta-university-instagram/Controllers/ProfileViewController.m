@@ -24,6 +24,17 @@
     self.followingCountLabel.text = @"1516";
     self.navigationItem.title = PFUser.currentUser[@"username"];
     
+    // Here we use the method didPan(sender:), which we defined in the previous step, as the action.
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAvatar:)];
+      
+      // Optionally set the number of required taps, e.g., 2 for a double click
+      tapGestureRecognizer.numberOfTapsRequired = 1;
+      
+      // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+      [self.profileImageView setUserInteractionEnabled:YES];
+      [self.profileImageView addGestureRecognizer:tapGestureRecognizer];
+    
 }
 
 - (void)onTapLogout:(id)sender {
@@ -37,6 +48,9 @@
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
 
     myDelegate.window.rootViewController = loginViewController;
+}
+- (IBAction)onTapAvatar:(id)sender {
+    NSLog(@"ayooo");
 }
 
 /*

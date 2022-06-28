@@ -20,6 +20,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    PFFileObject *userProfileImage = PFUser.currentUser[@"profileImageData"];
+    
+    [userProfileImage getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            CGRect bounds = UIScreen.mainScreen.bounds;
+            CGFloat width = bounds.size.width;
+            CGSize imageSize = CGSizeMake(width, width);
+            self.profileImageView.image = [self resizeImage:image withSize:imageSize];
+        }
+    }];
+    
     self.friendsCountLabel.text = @"48";
     self.followingCountLabel.text = @"1516";
     self.navigationItem.title = PFUser.currentUser[@"username"];

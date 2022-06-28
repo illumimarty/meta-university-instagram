@@ -51,16 +51,35 @@
 }
 - (IBAction)onTapAvatar:(id)sender {
     
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.sourceType = nil;
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"choose image!" preferredStyle:UIAlertControllerStyleActionSheet];
     
+    // Profile Picture by Camera
     UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Open camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
         NSLog(@"chosen camera!");
+
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        else {
+            NSLog(@"Camera 🚫 available so we will use photo library instead");
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+        
+        [self presentViewController:imagePickerVC animated:YES completion:nil];
     }];
     
     [alertController addAction:cameraAction];
 
+    // Profile Picture by Album
     UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"Select from album" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
         NSLog(@"chosen album!");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePickerVC animated:YES completion:nil];
     }];
     
     [alertController addAction:albumAction];
@@ -70,10 +89,30 @@
     [alertController addAction:cancelAction];
     
     [self presentViewController:alertController animated:YES completion:^{
-
+        
+        NSLog(@"Profile image picker finished!");
     }];
-
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+
+    // Do something with the images (based on your use case)
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+//- (void) chooseFromAlbum: (UIImagePickerController *)vc {
+//
+//    vc.delegate = self;
+//    vc.allowsEditing = YES;
+//}
+
 
 /*
 #pragma mark - Navigation

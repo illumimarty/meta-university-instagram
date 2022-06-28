@@ -52,46 +52,63 @@
 - (IBAction)onTapAvatar:(id)sender {
     
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.sourceType = nil;
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"choose image!" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    // Profile Picture by Camera
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Open camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        NSLog(@"chosen camera!");
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
 
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-        }
-        else {
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
-            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        }
-        
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-    }];
-    
-    [alertController addAction:cameraAction];
-
-    // Profile Picture by Album
-    UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"Select from album" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        NSLog(@"chosen album!");
+    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-    }];
+    }
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
     
-    [alertController addAction:albumAction];
+    // TODO: When choosing image from album, make sure that the user can confirm their image choice
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cencel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
-    
-    [alertController addAction:cancelAction];
-    
-    [self presentViewController:alertController animated:YES completion:^{
-        
-        NSLog(@"Profile image picker finished!");
-    }];
+//    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+//    imagePickerVC.sourceType = nil;
+//
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"choose image!" preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    // Profile Picture by Camera
+//    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Open camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        NSLog(@"chosen camera!");
+//
+//        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        }
+//        else {
+//            NSLog(@"Camera 🚫 available so we will use photo library instead");
+//            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        }
+//
+//        [self presentViewController:imagePickerVC animated:YES completion:nil];
+//    }];
+//
+//    [alertController addAction:cameraAction];
+//
+//    // Profile Picture by Album
+//    UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"Select from album" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        NSLog(@"chosen album!");
+//        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        [self presentViewController:imagePickerVC animated:YES completion:nil];
+//    }];
+//
+//    [alertController addAction:albumAction];
+//
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cencel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+//
+//    [alertController addAction:cancelAction];
+//
+//    [self presentViewController:alertController animated:YES completion:^{
+//
+//        NSLog(@"Profile image picker finished!");
+//    }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
@@ -101,17 +118,30 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
+    // MARK: create dimensions of image
+    CGRect bounds = UIScreen.mainScreen.bounds;
+    CGFloat width = bounds.size.width;
+    CGSize imageSize = CGSizeMake(width, width);
+    self.profileImageView.image = [self resizeImage:editedImage withSize:imageSize];
+    
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-//- (void) chooseFromAlbum: (UIImagePickerController *)vc {
-//
-//    vc.delegate = self;
-//    vc.allowsEditing = YES;
-//}
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 
 
 /*

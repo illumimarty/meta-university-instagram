@@ -124,6 +124,14 @@
     CGSize imageSize = CGSizeMake(width, width);
     self.profileImageView.image = [self resizeImage:editedImage withSize:imageSize];
     
+    // MARK: Save/update profile image to user's data
+    NSData *imageData = UIImagePNGRepresentation(editedImage);
+    PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"avatar.png" data:imageData];
+
+    PFUser.currentUser[@"profileImageData"] = imageFile;
+    [PFUser.currentUser saveInBackground];
+    NSLog(@"Profile image saved!");
+    
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];

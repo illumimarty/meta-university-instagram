@@ -241,6 +241,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="followingCountLabel" destination="VkY-dr-9P2" id="UXk-MA-M53"/>
+                        <outlet property="friendsCountLabel" destination="EM0-v3-5ts" id="GU5-zt-yJD"/>
+                        <outlet property="postCountLabel" destination="67q-Ga-6Uy" id="jOD-bQ-OYi"/>
+                        <outlet property="profileImageView" destination="xQN-Wi-F61" id="Hdn-gg-8bH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WuA-It-nWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

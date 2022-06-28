@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.friendsCountLabel.text = @"48";
+    self.followingCountLabel.text = @"1516";
+    self.navigationItem.title = PFUser.currentUser[@"username"];
+    
 }
 
 - (void)onTapLogout:(id)sender {

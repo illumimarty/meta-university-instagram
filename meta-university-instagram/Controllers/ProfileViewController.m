@@ -50,7 +50,29 @@
     myDelegate.window.rootViewController = loginViewController;
 }
 - (IBAction)onTapAvatar:(id)sender {
-    NSLog(@"ayooo");
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"choose image!" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Open camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"chosen camera!");
+    }];
+    
+    [alertController addAction:cameraAction];
+
+    UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"Select from album" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"chosen album!");
+    }];
+    
+    [alertController addAction:albumAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cencel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+
+    }];
+
 }
 
 /*
